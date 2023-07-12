@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Landing Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='upload.css') }}">
+</head>
+<body>
+    <h1>Welcome to the Landing Page!</h1>
+
+    {% for house in houses %}
+        <div class="house">
+            <img src="{{ url_for('house.upload', filename=house.photo_filename) }}" alt="House Image">
+            <h2>{{ house.location }}</h2>
+            <p>Price: {{ house.price }}</p>
+            <p>Description: {{ house.description }}</p>
+        </div>
+    {% endfor %}
+
+    <script src="{{ url_for('static', filename='landingpage.js') }}"></script>
+</body>
+</html>
